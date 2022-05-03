@@ -15,15 +15,12 @@ class DistrictPickerDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: _buildListViewItem,
-              itemCount: districts.length,
-            ),
-          ),
-        ],
+      content: SizedBox(
+        width: double.maxFinite,
+        child: ListView.builder(
+          itemBuilder: _buildListViewItem,
+          itemCount: districts.length,
+        ),
       ),
     );
   }
