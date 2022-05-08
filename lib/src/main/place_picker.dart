@@ -202,10 +202,15 @@ class PlacePicker {
   }
 
   Future<District?> getDistrictByCode(String districtCode) async {
-    return _cityPickerService.cities[_cityCodeForDistrictPicker]?.districts
-        .firstWhereOrNull((d) {
-      return d.code.toLowerCase() == districtCode.toLowerCase();
-    });
+    if (!_cityPickerService.isReady()) {
+      await _cityPickerService.loadAllCities();
+    }
+    if (_cityPickerService.isReady()) {
+      return _cityPickerService.cities[_cityCodeForDistrictPicker]?.districts
+          .firstWhereOrNull((d) {
+        return d.code.toLowerCase() == districtCode.toLowerCase();
+      });
+    }
   }
 
   Future<List<City>> _getAllCities() async {
