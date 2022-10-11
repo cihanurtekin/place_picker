@@ -670,6 +670,9 @@
   "17": {
     "name": "Çanakkale",
     "districts": {
+      "17_00": {
+        "name": "Merkez"
+      },
       "17_01": {
         "name": "Ayvacık"
       },
